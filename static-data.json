@@ -1,0 +1,107 @@
+{
+  "updated_at": "2026-01-30T00:10:00-08:00",
+  "collection": {
+    "floor_price": 0.44,
+    "total_supply": 10021,
+    "num_owners": 5421,
+    "total_volume": 84521,
+    "one_day_volume": 12.4,
+    "one_day_change": -2.3,
+    "one_day_sales": 28,
+    "seven_day_volume": 89.7,
+    "seven_day_change": 5.2,
+    "thirty_day_volume": 342.1,
+    "market_cap": 4409.24,
+    "average_price": 0.52
+  },
+  "recent_sales": [
+    {
+      "token_id": "6969",
+      "price_eth": "0.4500",
+      "timestamp": "2026-01-29T23:45:00Z"
+    },
+    {
+      "token_id": "420",
+      "price_eth": "0.4800",
+      "timestamp": "2026-01-29T22:30:00Z"
+    },
+    {
+      "token_id": "1337",
+      "price_eth": "0.4400",
+      "timestamp": "2026-01-29T21:15:00Z"
+    },
+    {
+      "token_id": "8008",
+      "price_eth": "0.4650",
+      "timestamp": "2026-01-29T20:00:00Z"
+    },
+    {
+      "token_id": "2222",
+      "price_eth": "0.4700",
+      "timestamp": "2026-01-29T19:30:00Z"
+    }
+  ],
+  "builders": [
+    {
+      "name": "HeresMyEth",
+      "twitter": "@HeresMyEth",
+      "building": "mferGPT, MferbuilderDAO contributor"
+    },
+    {
+      "name": "Sartoshi",
+      "twitter": "@sartoshi_rip",
+      "building": "Original creator, Sartoshi's Garden merch, creating art"
+    },
+    {
+      "name": "Rey (Creyzies)",
+      "twitter": "@Reylarsdam",
+      "building": "Creyzies (official companion NFT)"
+    },
+    {
+      "name": "Seacasa",
+      "twitter": "@Seacasa",
+      "building": "Jungle Bay (community hub)"
+    },
+    {
+      "name": "the_imp0ster",
+      "twitter": "@the_imp0ster",
+      "building": "Tools, ciphers, community infrastructure"
+    },
+    {
+      "name": "Breezy",
+      "twitter": "@breezy",
+      "building": "Analytics, Dune dashboards"
+    },
+    {
+      "name": "0xDeployer",
+      "twitter": "@0xDeployer",
+      "building": "Bankr bot, agent infrastructure"
+    },
+    {
+      "name": "masterchanx",
+      "twitter": "@masterchanx",
+      "building": "cc0crew merch"
+    },
+    {
+      "name": "abrahammayorga",
+      "twitter": "@abrahammayorga",
+      "building": "stitchnft hybrid NFT+merch"
+    },
+    {
+      "name": "Sartoodles",
+      "twitter": "@Sartoodles",
+      "building": "Dead Mfers, mfers everyday, derivative art"
+    },
+    {
+      "name": "outerlumen",
+      "twitter": "@outerlumen",
+      "building": "Mferverse game development"
+    },
+    {
+      "name": "nickiloula",
+      "twitter": "@nickiloula",
+      "building": "Mfers book, storytelling"
+    }
+  ],
+  "note": "Static data for MVP. Will integrate live OpenSea API once access is sorted."
+}

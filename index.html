@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mfers dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background: #000;
+      color: #fff;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #00ff00;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-transform: lowercase;
+    }
+
+    .subtitle {
+      color: #00ff00;
+      font-size: 0.9em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .card h2 {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+      color: #00ff00;
+      text-transform: lowercase;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      padding: 8px;
+      background: #000;
+      border-radius: 4px;
+    }
+
+    .stat-label {
+      color: #888;
+    }
+
+    .stat-value {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .positive {
+      color: #00ff00;
+    }
+
+    .negative {
+      color: #ff4444;
+    }
+
+    .sales-list {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .sale-item {
+      background: #000;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sale-token {
+      color: #00ff00;
+    }
+
+    .builder-item {
+      background: #000;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+    }
+
+    .builder-name {
+      color: #00ff00;
+      font-weight: bold;
+    }
+
+    .builder-twitter {
+      color: #00a0ff;
+      text-decoration: none;
+    }
+
+    .builder-twitter:hover {
+      text-decoration: underline;
+    }
+
+    .builder-desc {
+      color: #888;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #666;
+      font-size: 0.8em;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .link-button {
+      background: #111;
+      color: #00ff00;
+      padding: 10px 20px;
+      border: 1px solid #00ff00;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .link-button:hover {
+      background: #00ff00;
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Scroll bar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎩 mfers dashboard</h1>
+      <p class="subtitle">real-time pulse check of the mfers ecosystem</p>
+    </header>
+
+    <div class="links">
+      <a href="https://mfers.cool" class="link-button" target="_blank">marketplace</a>
+      <a href="https://twitter.com/unofficialmfers" class="link-button" target="_blank">twitter</a>
+      <a href="https://discord.gg/unofficialmfers" class="link-button" target="_blank">discord</a>
+      <a href="http://aboutmfers.com" class="link-button" target="_blank">wiki</a>
+    </div>
+
+    <div class="grid">
+      <!-- Collection Stats -->
+      <div class="card">
+        <h2>📊 collection stats</h2>
+        <div class="stat">
+          <span class="stat-label">floor price</span>
+          <span class="stat-value" id="floor">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">holders</span>
+          <span class="stat-value" id="holders">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">total supply</span>
+          <span class="stat-value" id="supply">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">market cap</span>
+          <span class="stat-value" id="mcap">--</span>
+        </div>
+      </div>
+
+      <!-- 24h Activity -->
+      <div class="card">
+        <h2>📈 24h activity</h2>
+        <div class="stat">
+          <span class="stat-label">volume</span>
+          <span class="stat-value" id="volume24h">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">sales</span>
+          <span class="stat-value" id="sales24h">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">change</span>
+          <span class="stat-value" id="change24h">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">avg price</span>
+          <span class="stat-value" id="avgPrice">--</span>
+        </div>
+      </div>
+
+      <!-- Recent Sales -->
+      <div class="card">
+        <h2>🔥 recent sales</h2>
+        <div class="sales-list" id="recentSales">
+          <p style="color: #666; text-align: center;">loading...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Builders Section -->
+    <div class="card">
+      <h2>🛠️ who's building</h2>
+      <div id="builders"></div>
+    </div>
+
+    <footer>
+      <p>built by <a href="https://twitter.com/mferGPT" style="color: #00ff00; text-decoration: none;">@mferGPT</a></p>
+      <p style="margin-top: 8px;">cc0 · open source · mfers do what they want</p>
+      <p style="margin-top: 8px; font-size: 0.9em;">last updated: <span id="lastUpdated">--</span></p>
+    </footer>
+  </div>
+
+  <script>
+    // Load data and populate dashboard
+    async function loadData() {
+      try {
+        const response = await fetch('static-data.json');
+        const data = await response.json();
+
+        // Collection stats
+        document.getElementById('floor').textContent = `${data.collection.floor_price} ETH`;
+        document.getElementById('holders').textContent = data.collection.num_owners.toLocaleString();
+        document.getElementById('supply').textContent = data.collection.total_supply.toLocaleString();
+        document.getElementById('mcap').textContent = `${data.collection.market_cap.toFixed(2)} ETH`;
+
+        // 24h activity
+        document.getElementById('volume24h').textContent = `${data.collection.one_day_volume.toFixed(2)} ETH`;
+        document.getElementById('sales24h').textContent = data.collection.one_day_sales;
+        
+        const change = data.collection.one_day_change;
+        const changeElem = document.getElementById('change24h');
+        changeElem.textContent = `${change > 0 ? '+' : ''}${change.toFixed(2)}%`;
+        changeElem.className = `stat-value ${change >= 0 ? 'positive' : 'negative'}`;
+
+        document.getElementById('avgPrice').textContent = `${data.collection.average_price.toFixed(4)} ETH`;
+
+        // Recent sales
+        const salesHtml = data.recent_sales.map(sale => `
+          <div class="sale-item">
+            <span class="sale-token">mfer #${sale.token_id}</span>
+            <span>${sale.price_eth} ETH</span>
+          </div>
+        `).join('');
+        document.getElementById('recentSales').innerHTML = salesHtml;
+
+        // Builders
+        const buildersHtml = data.builders.map(builder => `
+          <div class="builder-item">
+            <div>
+              <span class="builder-name">${builder.name}</span>
+              <a href="https://twitter.com/${builder.twitter.replace('@', '')}" 
+                 class="builder-twitter" 
+                 target="_blank">${builder.twitter}</a>
+            </div>
+            <div class="builder-desc">${builder.building}</div>
+          </div>
+        `).join('');
+        document.getElementById('builders').innerHTML = buildersHtml;
+
+        // Last updated
+        const updated = new Date(data.updated_at);
+        document.getElementById('lastUpdated').textContent = updated.toLocaleString();
+
+      } catch (error) {
+        console.error('Error loading data:', error);
+        document.getElementById('recentSales').innerHTML = 
+          '<p style="color: #ff4444; text-align: center;">error loading data</p>';
+      }
+    }
+
+    // Load data on page load
+    loadData();
+  </script>
+</body>
+</html>

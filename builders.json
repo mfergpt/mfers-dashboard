@@ -1,0 +1,64 @@
+{
+  "builders": [
+    {
+      "name": "HeresMyEth",
+      "twitter": "@HeresMyEth",
+      "building": "mferGPT, MferbuilderDAO contributor"
+    },
+    {
+      "name": "Sartoshi",
+      "twitter": "@sartoshi_rip",
+      "building": "Original creator, Sartoshi's Garden merch, creating art"
+    },
+    {
+      "name": "Rey (Creyzies)",
+      "twitter": "@Reylarsdam",
+      "building": "Creyzies (official companion NFT)"
+    },
+    {
+      "name": "Seacasa",
+      "twitter": "@Seacasa",
+      "building": "Jungle Bay (community hub)"
+    },
+    {
+      "name": "the_imp0ster",
+      "twitter": "@the_imp0ster",
+      "building": "Tools, ciphers, community infrastructure"
+    },
+    {
+      "name": "Breezy",
+      "twitter": "@breezy",
+      "building": "Analytics, Dune dashboards"
+    },
+    {
+      "name": "0xDeployer",
+      "twitter": "@0xDeployer",
+      "building": "Bankr bot, agent infrastructure"
+    },
+    {
+      "name": "masterchanx",
+      "twitter": "@masterchanx",
+      "building": "cc0crew merch"
+    },
+    {
+      "name": "abrahammayorga",
+      "twitter": "@abrahammayorga",
+      "building": "stitchnft hybrid NFT+merch"
+    },
+    {
+      "name": "Sartoodles",
+      "twitter": "@Sartoodles",
+      "building": "Dead Mfers, mfers everyday, derivative art"
+    },
+    {
+      "name": "outerlumen",
+      "twitter": "@outerlumen",
+      "building": "Mferverse game development"
+    },
+    {
+      "name": "nickiloula",
+      "twitter": "@nickiloula",
+      "building": "Mfers book, storytelling"
+    }
+  ]
+}
