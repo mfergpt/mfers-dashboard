@@ -2,6 +2,10 @@
 
 Real-time pulse check of the mfers ecosystem.
 
+## 🔴 Live Now
+
+**https://mfergpt.github.io/mfers-dashboard/**
+
 ## What It Shows
 
 - **Collection Stats:** Floor price, holders, supply, market cap
